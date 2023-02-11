@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 // Model
 class CompoundInterestModel {
-  double principal = 0.0;
-  double rate = 0.0;
-  int time = 0;
+  double principal = 1000.0;
+  double rate = 5.0;
+  int time = 10;
 
   double get compoundInterest => principal * pow(1 + rate / 100, time);
 }
@@ -15,7 +15,7 @@ class CompoundInterestModel {
 // ViewModel
 class CompoundInterestViewModel {
   final CompoundInterestModel _model;
-  StreamController<CompoundInterestModel> _modelStreamController =
+  final StreamController<CompoundInterestModel> _modelStreamController =
       StreamController<CompoundInterestModel>();
 
   CompoundInterestViewModel(this._model) {
@@ -48,11 +48,15 @@ class CompoundInterestViewModel {
 // View (main.dart)
 class CompoundInterestCalculator extends StatefulWidget {
   @override
-  State<CompoundInterestCalculator> createState() => _CompoundInterestCalculatorState();
+  State<CompoundInterestCalculator> createState() =>
+      _CompoundInterestCalculatorState();
 }
 
-class _CompoundInterestCalculatorState extends State<CompoundInterestCalculator> {
-  final CompoundInterestViewModel _viewModel = CompoundInterestViewModel(CompoundInterestModel(),);
+class _CompoundInterestCalculatorState
+    extends State<CompoundInterestCalculator> {
+  final CompoundInterestViewModel _viewModel = CompoundInterestViewModel(
+    CompoundInterestModel(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -81,15 +85,25 @@ class _CompoundInterestCalculatorState extends State<CompoundInterestCalculator>
                       _viewModel.updateRate(double.parse(text)),
                 ),
                 TextField(
-                  decoration: const InputDecoration(labelText: 'Temps (en années)'),
+                  decoration:
+                      const InputDecoration(labelText: 'Temps (en années)'),
                   keyboardType: TextInputType.number,
-                  onChanged: (text) =>
-                      _viewModel.updateTime(int.parse(text)),
+                  onChanged: (text) => _viewModel.updateTime(int.parse(text)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Text(
                       'Intérêts composés: ${snapshot.data!.compoundInterest}'),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _viewModel.updateTime(_viewModel._model.time + 1);
+                    },
+                    child: const Text('Increase time by one'),
+                  ),
                 ),
               ],
             );
