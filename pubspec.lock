@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  dart_internal:
+    dependency: transitive
+    description:
+      name: dart_internal
+      sha256: ddd00c2a49dbaedda74fdb59a90c51186ed10ed627f70de4684f077f95217856
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.6"
   fake_async:
     dependency: transitive
     description:
@@ -107,6 +115,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  observable:
+    dependency: "direct main"
+    description:
+      name: observable
+      sha256: "6be2c1236cd4130a0e752895b0d3dee6d438d4c0b6775b8fe5808cf981aa9a70"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.24.0"
   path:
     dependency: transitive
     description:
@@ -115,6 +131,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.1"
+  rxdart:
+    dependency: "direct main"
+    description:
+      name: rxdart
+      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.27.7"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -177,4 +209,4 @@ packages:
     source: hosted
     version: "2.1.4"
 sdks:
-  dart: ">=2.19.0 <4.0.0"
+  dart: ">=2.19.0 <2.20.0"
